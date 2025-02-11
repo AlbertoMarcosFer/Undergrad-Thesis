@@ -1,0 +1,223 @@
+---
+title: "Hypothesis_3"
+author: "Alberto Marcos Fernandez"
+date: "2024-05-13"
+output: html_document
+---
+
+```{r}
+setwd( "C:/Users/amarc/OneDrive/Escritorio/SCF2" )
+
+library(mitools)
+library(survey)
+library(downloader)
+library(foreign)
+library(DescTools)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(car)
+
+
+
+load( "scf1989.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_1989_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_1989_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf1992.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_1992_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_1992_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf1995.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_1995_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_1995_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf1998.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_1998_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_1998_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf2001.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_2001_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_2001_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf2004.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_2004_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_2004_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf2007.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_2007_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_2007_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf2010.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_2010_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_2010_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf2013.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_2013_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_2013_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf2016.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_2016_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_2016_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf2019.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_2019_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_2019_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+load( "scf2022.rda" )
+
+imp1$dummy_deq <- ifelse(imp1$deq>0 | imp1$htrad==1, 1, 0)
+
+impa = subset(imp1, imp1$nwpctlecat<=3)
+impb = subset(imp1, imp1$nwpctlecat>3)
+
+scf_2022_low = table(impa$nofinrisk, impa$dummy_deq)
+scf_2022_high = table(impb$nofinrisk, impb$dummy_deq)
+
+
+
+scf_low_yes_risk = rbind(scf_1989_low[3]/(scf_1989_low[1]+scf_1989_low[3]), scf_1992_low[3]/(scf_1992_low[1]+scf_1992_low[3]), scf_1995_low[3]/(scf_1995_low[1]+scf_1995_low[3]), scf_1998_low[3]/(scf_1998_low[1]+scf_1998_low[3]), scf_2001_low[3]/(scf_2001_low[1]+scf_2001_low[3]), scf_2004_low[3]/(scf_2004_low[1]+scf_2004_low[3]), scf_2007_low[3]/(scf_2007_low[1]+scf_2007_low[3]), scf_2010_low[3]/(scf_2010_low[1]+scf_2010_low[3]), scf_2013_low[3]/(scf_2013_low[1]+scf_2013_low[3]), scf_2016_low[3]/(scf_2016_low[1]+scf_2016_low[3]), scf_2019_low[3]/(scf_2019_low[1]+scf_2019_low[3]), scf_2022_low[3]/(scf_2022_low[1]+scf_2022_low[3]))
+
+scf_high_yes_risk = rbind(scf_1989_high[3]/(scf_1989_high[1]+scf_1989_high[3]), scf_1992_high[3]/(scf_1992_high[1]+scf_1992_high[3]), scf_1995_high[3]/(scf_1995_high[1]+scf_1995_high[3]), scf_1998_high[3]/(scf_1998_high[1]+scf_1998_high[3]), scf_2001_high[3]/(scf_2001_high[1]+scf_2001_high[3]), scf_2004_high[3]/(scf_2004_high[1]+scf_2004_high[3]), scf_2007_high[3]/(scf_2007_high[1]+scf_2007_high[3]), scf_2010_high[3]/(scf_2010_high[1]+scf_2010_high[3]), scf_2013_high[3]/(scf_2013_high[1]+scf_2013_high[3]), scf_2016_high[3]/(scf_2016_high[1]+scf_2016_high[3]), scf_2019_high[3]/(scf_2019_high[1]+scf_2019_high[3]), scf_2022_high[3]/(scf_2022_high[1]+scf_2022_high[3]))
+
+scf_low_no_risk = rbind(scf_1989_low[4]/(scf_1989_low[2]+scf_1989_low[4]), scf_1992_low[4]/(scf_1992_low[2]+scf_1992_low[4]), scf_1995_low[4]/(scf_1995_low[2]+scf_1995_low[4]), scf_1998_low[4]/(scf_1998_low[2]+scf_1998_low[4]), scf_2001_low[4]/(scf_2001_low[2]+scf_2001_low[4]), scf_2004_low[4]/(scf_2004_low[2]+scf_2004_low[4]), scf_2007_low[4]/(scf_2007_low[2]+scf_2007_low[4]), scf_2010_low[4]/(scf_2010_low[2]+scf_2010_low[4]), scf_2013_low[4]/(scf_2013_low[2]+scf_2013_low[4]), scf_2016_low[4]/(scf_2016_low[2]+scf_2016_low[4]), scf_2019_low[4]/(scf_2019_low[2]+scf_2019_low[4]), scf_2022_low[4]/(scf_2022_low[2]+scf_2022_low[4]))
+
+scf_high_no_risk= rbind(scf_1989_high[4]/(scf_1989_high[2]+scf_1989_high[4]), scf_1992_high[4]/(scf_1992_high[2]+scf_1992_high[4]), scf_1995_high[4]/(scf_1995_high[2]+scf_1995_high[4]), scf_1998_high[4]/(scf_1998_high[2]+scf_1998_high[4]), scf_2001_high[4]/(scf_2001_high[2]+scf_2001_high[4]), scf_2004_high[4]/(scf_2004_high[2]+scf_2004_high[4]), scf_2007_high[4]/(scf_2007_high[2]+scf_2007_high[4]), scf_2010_high[4]/(scf_2010_high[2]+scf_2010_high[4]), scf_2013_high[4]/(scf_2013_high[2]+scf_2013_high[4]), scf_2016_high[4]/(scf_2016_high[2]+scf_2016_high[4]), scf_2019_high[4]/(scf_2019_high[2]+scf_2019_high[4]), scf_2022_high[4]/(scf_2022_high[2]+scf_2022_high[4]))
+
+
+
+remove(scf_1989_low, scf_1992_low, scf_1995_low, scf_1998_low, scf_2001_low, scf_2004_low, scf_2007_low, scf_2010_low, scf_2013_low, scf_2016_low, scf_2019_low, scf_2022_low, scf_1989_high, scf_1992_high, scf_1995_high, scf_1998_high, scf_2001_high, scf_2004_high, scf_2007_high, scf_2010_high, scf_2013_high, scf_2016_high, scf_2019_high, scf_2022_high)
+
+
+
+data <- data.frame(Time = c(1989, 1992, 1995, 1998, 2001, 2004, 2007, 2010, 2013, 2016, 2019, 2022), "LN & NR" = scf_low_no_risk, "HN & NR" = scf_high_no_risk, "LN & YR" = scf_low_yes_risk, "HN & YR" = scf_high_yes_risk)
+
+
+
+ggplot() +
+  geom_line(data= data, aes(y = LN...NR, x = Time, color="Low Net worth, High Risk Aversion") ) +
+  geom_line(data= data, aes(y= HN...NR, x = Time, color = "High Net worth, High Risk Aversion")) +
+  geom_line(data= data, aes(y = LN...YR, x = Time, color="Low Net worth, Low Risk Aversion") ) +
+  geom_line(data= data, aes(y= HN...YR, x = Time, color = "High Net worth, Low Risk Aversion")) +
+  scale_color_manual(name = "Case of study", values = c("Low Net worth, High Risk Aversion" = "springgreen4", "High Net worth, High Risk Aversion" = "darkblue", "Low Net worth, Low Risk Aversion" = "red", "High Net worth, Low Risk Aversion" = "yellow4")) +
+  labs(title = "Household Stock Market Participation",
+       x = "Year",
+       y = "Share of HH Participating in the Stock Market")
+
+
+
+data$NR_multiple <- data$HN...NR / data$LN...NR
+data$YR_multiple <- data$HN...YR / data$LN...YR
+
+ggplot() +
+  geom_line(data= data, aes(y = NR_multiple, x = Time, color="High Risk Aversion Ratio") ) +
+  geom_line(data= data, aes(y= YR_multiple, x = Time, color = "Low Risk Aversion Ratio")) +
+  scale_color_manual(name = "Case of study", values = c("High Risk Aversion Ratio" = "darkblue", "Low Risk Aversion Ratio" = "red")) +
+  labs(title = "LRAR and HRAR evolution",
+       x = "Year",
+       y = "High/Low Income Ratios")
+
+
+
+data$HN_multiple <- data$HN...YR / data$HN...NR
+data$LN_multiple <- data$LN...YR / data$LN...NR
+
+ggplot() +
+  geom_line(data= data, aes(y = LN_multiple, x = Time, color="Low Net Worth Ratio") ) +
+  geom_line(data= data, aes(y= HN_multiple, x = Time, color = "High Net Worth Ratio")) +
+  scale_color_manual(name = "Case of study", values = c("Low Net Worth Ratio" = "darkblue", "High Net Worth Ratio" = "red")) +
+  labs(title = "HNR and LNR evolution",
+       x = "Year",
+       y = "High/Low Risk Aversion Ratios")
+```

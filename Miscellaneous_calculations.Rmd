@@ -1,0 +1,152 @@
+---
+title: "Deq%"
+author: "Alberto Marcos Fernandez"
+date: "2024-05-14"
+output: html_document
+---
+
+```{r}
+setwd( "C:/Users/amarc/OneDrive/Escritorio/SCF" )
+
+library(mitools)
+library(survey)
+library(downloader)
+library(foreign)
+library(DescTools)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(car)
+
+
+
+load( "scf1998.rda" )
+deq1998= sum(imp1$deq>0)/nrow(imp1)
+internet1998= sum(imp1$internet==1)/nrow(imp1)
+iinternet1998= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+"high_networth_advisor_rate_1998" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_1998" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_1998 <- high_networth_advisor_rate_1998/low_networth_advisor_rate_1998
+
+
+load( "scf2001.rda" )
+deq2001= sum(imp1$deq>0)/nrow(imp1)
+internet2001= sum(imp1$internet==1)/nrow(imp1)
+iinternet2001= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+"high_networth_advisor_rate_2001" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_2001" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_2001 <- high_networth_advisor_rate_2001/low_networth_advisor_rate_2001
+
+
+load( "scf2004.rda" )
+deq2004= sum(imp1$deq>0)/nrow(imp1)
+internet2004= sum(imp1$internet==1)/nrow(imp1)
+iinternet2004= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+high_networth_advisor_rate_2004 <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"high_networth_advisor_rate_2004" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_2004" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_2004 <- high_networth_advisor_rate_2004/low_networth_advisor_rate_2004
+
+
+load( "scf2007.rda" )
+deq2007= sum(imp1$deq>0)/nrow(imp1)
+internet2007= sum(imp1$internet==1)/nrow(imp1)
+iinternet2007= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+high_networth_advisor_rate_2007 <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"high_networth_advisor_rate_2007" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_2007" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_2007 <- high_networth_advisor_rate_2007/low_networth_advisor_rate_2007
+
+
+load( "scf2010.rda" )
+deq2010= sum(imp1$deq>0)/nrow(imp1)
+internet2010= sum(imp1$internet==1)/nrow(imp1)
+iinternet2010= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+high_networth_advisor_rate_2010 <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"high_networth_advisor_rate_2010" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_2010" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_2010 <- high_networth_advisor_rate_2010/low_networth_advisor_rate_2010
+
+
+load( "scf2013.rda" )
+deq2013= sum(imp1$deq>0)/nrow(imp1)
+internet2013= sum(imp1$internet==1)/nrow(imp1)
+iinternet2013= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+high_networth_advisor_rate_2013 <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"high_networth_advisor_rate_2013" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_2013" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_2013 <- high_networth_advisor_rate_2013/low_networth_advisor_rate_2013
+
+
+load( "scf2016.rda" )
+deq2016= sum(imp1$deq>0)/nrow(imp1)
+internet2016= sum(imp1$internet==1)/nrow(imp1)
+iinternet2016= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+"high_networth_advisor_rate_2016" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_2016" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_2016 <- high_networth_advisor_rate_2016/low_networth_advisor_rate_2016
+
+
+load( "scf2019.rda" )
+deq2019= sum(imp1$deq>0)/nrow(imp1)
+internet2019= sum(imp1$internet==1)/nrow(imp1)
+iinternet2019= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+high_networth_advisor_rate_2019 <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"high_networth_advisor_rate_2019" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_2019" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_2019 <- high_networth_advisor_rate_2019/low_networth_advisor_rate_2019
+
+
+load( "scf2022.rda" )
+deq2022= sum(imp1$deq>0)/nrow(imp1)
+internet2022= sum(imp1$internet==1)/nrow(imp1)
+iinternet2022= sum(imp1$iinternet==1)/nrow(imp1)
+imp1$income_percentile <- cut(imp1$income, unique(quantile(imp1$income, seq(0, 1, 0.01))), labels = FALSE)
+high_networth_advisor_rate_2022 <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"high_networth_advisor_rate_2022" <- nrow(subset(imp1, imp1$income_percentile>90 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile>90))
+"low_networth_advisor_rate_2022" <- nrow(subset(imp1, imp1$income_percentile<10 & (imp1$ifinplan==1 | imp1$ifinpro==1)))/nrow(subset(imp1, imp1$income_percentile<10))
+ratio_2022 <- high_networth_advisor_rate_2022/low_networth_advisor_rate_2022
+
+
+deqs= rbind(deq1998, deq2001, deq2004, deq2007, deq2010, deq2013, deq2016, deq2019, deq2022)
+internets= rbind(internet1998, internet2001, internet2004, internet2007, internet2010, internet2013, internet2016, internet2019, internet2022)
+iinternets= rbind(iinternet1998, iinternet2001, iinternet2004, iinternet2007, iinternet2010, iinternet2013, iinternet2016, iinternet2019, iinternet2022)
+ratios <- rbind(ratio_1998, ratio_2001, ratio_2004, ratio_2007, ratio_2010, ratio_2013, ratio_2016, ratio_2019, ratio_2022)
+
+
+time_periods <- c(1998, 2001, 2004, 2007, 2010, 2013, 2016, 2019, 2022)
+data=data.frame(Time= time_periods, "Percentage of HH investing"= deqs, "Percentage of HH with Online Financial Services"= internets, "Percentage of HH with Online Financial Services"= iinternets, "<90/>10 percentile advisor ratios" = ratios)
+
+ggplot(data, aes(x = Time)) +
+  geom_line(aes(y = deqs)) +
+  labs(title = "HH Stock Market Participation over the years",
+       x = "Year",
+       y = "Percentage of HH investing")
+
+ggplot(data, aes(x = Time)) +
+  geom_line(aes(y = internets)) +
+  labs(title = "Percentage of HH with Online Financial Services over the years",
+       x = "Year",
+       y = "Percentage of HH with Online Financial Services")
+
+ggplot(data, aes(x = Time)) +
+  geom_line(aes(y = iinternets)) +
+  labs(title = "Percentage of HH Accessing Online Financial Information over the years",
+       x = "Year",
+       y = "Percentage of HH Accessing Online Financial Information")
+
+
+ggplot(data, aes(x = Time)) +
+  geom_line(aes(y = ratios)) +
+  labs(title = "Top 10% to bottom 10% net worth Fin. Advice",
+       x = "Year",
+       y = "Ratio")
+```
